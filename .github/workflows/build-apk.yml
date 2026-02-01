@@ -1,0 +1,77 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+
+    - name: Cache Gradle packages
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: almex-asistente-debug
+        path: app/build/outputs/apk/debug/app-debug.apk
+
+    - name: Create Release
+      if: github.ref == 'refs/heads/main'
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v1.0.${{ github.run_number }}
+        name: Almex Asistente v1.0.${{ github.run_number }}
+        body: |
+          🤖 **Almex Asistente - Build Automático**
+          
+          ### 🌐 Página de Descarga:
+          **https://TU_SITIO_RENDER.onrender.com**
+          
+          ### Funcionalidades:
+          - ✅ Asistente de voz con IA (Groq)
+          - ✅ Horacio - Gestor de tiempo inteligente
+          - ✅ Generación de documentos PDF/DOCX/TXT
+          - ✅ Chat inteligente con documentos
+          - ✅ Optimizado para ZTE A35
+          
+          ### Instalación:
+          1. Visitar la página web arriba
+          2. Descargar el APK desde el botón
+          3. Habilitar "Fuentes desconocidas" en Android
+          4. Instalar y conceder permisos
+          5. ¡Listo para usar!
+          
+          **Tamaño:** ~15MB
+          **Android mínimo:** 7.0 (API 24)
+        files: app/build/outputs/apk/debug/app-debug.apk
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

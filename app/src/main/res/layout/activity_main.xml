@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    tools:context=".ui.MainActivity">
+
+    <!-- Imagen de fondo personalizable -->
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Contenido principal -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <!-- Logo/Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ALMEX"
+            android:textSize="48sp"
+            android:textColor="@color/text_primary"
+            android:fontFamily="@font/roboto_mono_bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ASISTENTE PERSONAL"
+            android:textSize="14sp"
+            android:textColor="@color/text_secondary"
+            android:fontFamily="@font/roboto_mono_regular"
+            android:letterSpacing="0.2"
+            android:layout_marginBottom="48dp" />
+
+        <!-- Indicador de estado -->
+        <View
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/status_indicator"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iniciando sistema..."
+            android:textSize="16sp"
+            android:textColor="@color/accent_blue"
+            android:fontFamily="@font/roboto_mono_regular"
+            android:gravity="center"
+            android:layout_marginBottom="64dp" />
+
+        <!-- Panel de personalización -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/panel_background"
+            android:padding="20dp"
+            android:layout_marginTop="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PERSONALIZACIÓN"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary"
+                android:fontFamily="@font/roboto_mono_bold"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/background_button"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="FONDO"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/roboto_mono_bold"
+                    android:background="@drawable/button_tech"
+                    android:layout_marginEnd="4dp" />
+
+                <Button
+                    android:id="@+id/accent_color_button"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="COLOR"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/roboto_mono_bold"
+                    android:background="@drawable/button_tech"
+                    android:layout_marginStart="4dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/horacio_button"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="⏰ HORACIO - GESTOR DE TIEMPO"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:fontFamily="@font/roboto_mono_bold"
+                android:background="@drawable/button_tech"
+                android:drawableStart="@drawable/ic_schedule"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/documents_button"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="📄 DOCUMENTACIÓN - CREAR ARCHIVOS"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:fontFamily="@font/roboto_mono_bold"
+                android:background="@drawable/button_tech"
+                android:drawableStart="@drawable/ic_pdf"
+                android:drawablePadding="8dp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

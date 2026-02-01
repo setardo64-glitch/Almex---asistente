@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores principales del tema tech-enterprise -->
+    <color name="background_primary">#0D1117</color>
+    <color name="background_secondary">#161B22</color>
+    <color name="background_tertiary">#21262D</color>
+    
+    <!-- Colores de texto -->
+    <color name="text_primary">#F0F6FC</color>
+    <color name="text_secondary">#8B949E</color>
+    <color name="text_tertiary">#6E7681</color>
+    
+    <!-- Colores de acento -->
+    <color name="accent_blue">#58A6FF</color>
+    <color name="accent_green">#3FB950</color>
+    <color name="accent_orange">#FF8C00</color>
+    <color name="accent_purple">#A855F7</color>
+    <color name="accent_red">#F85149</color>
+    
+    <!-- Colores de estado -->
+    <color name="status_active">#3FB950</color>
+    <color name="status_inactive">#6E7681</color>
+    <color name="status_warning">#FF8C00</color>
+    <color name="status_error">#F85149</color>
+    
+    <!-- Colores de bordes y divisores -->
+    <color name="border_primary">#30363D</color>
+    <color name="border_secondary">#21262D</color>
+    
+    <!-- Overlays -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_light">#40FFFFFF</color>
+</resources>

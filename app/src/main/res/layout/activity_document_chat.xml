@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_primary"
+    tools:context=".ui.DocumentChatActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/background_secondary"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Documento"
+        app:titleTextColor="@color/text_primary" />
+
+    <!-- Información del documento -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="@color/background_secondary">
+
+        <TextView
+            android:id="@+id/document_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="PDF • 250 palabras"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:fontFamily="@font/roboto_mono_regular" />
+
+        <Button
+            android:id="@+id/btn_open_document"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="ABRIR"
+            android:textSize="10sp"
+            android:textColor="@color/text_primary"
+            android:fontFamily="@font/roboto_mono_bold"
+            android:background="@drawable/button_tech"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btn_summarize_document"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="RESUMIR"
+            android:textSize="10sp"
+            android:textColor="@color/text_primary"
+            android:fontFamily="@font/roboto_mono_bold"
+            android:background="@drawable/button_tech" />
+
+    </LinearLayout>
+
+    <!-- Chat de conversación -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_chat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:clipToPadding="false"
+            tools:listitem="@layout/item_chat_message" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <!-- Input de chat -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@color/background_secondary">
+
+        <EditText
+            android:id="@+id/et_chat_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Pregunta sobre el documento o solicita cambios..."
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:fontFamily="@font/roboto_mono_regular"
+            android:background="@drawable/chat_input_background"
+            android:padding="12dp"
+            android:minHeight="48dp"
+            android:maxLines="3"
+            android:layout_marginEnd="8dp" />
+
+        <ImageButton
+            android:id="@+id/btn_send_message"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/send_button_background"
+            android:src="@drawable/ic_send"
+            android:contentDescription="Enviar mensaje"
+            app:tint="@color/text_primary" />
+
+    </LinearLayout>
+
+</LinearLayout>
